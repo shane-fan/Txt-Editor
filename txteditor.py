@@ -31,13 +31,9 @@ def saveAs(): #Save new
         messagebox.showerror(title='Error', message='Cannot save file') #shouldn't have error, but here if there is
 
 def about(): #about tab
-    word_count = 0
     user_input = str(Entry(root).get())
     user_input.split()
-    print(user_input + "1235236")
-    for _ in user_input: #word counter
-        word_count += 1
-    messagebox.showinfo("About", "Welcome to this convenient and clean notepad! There are " + str(word_count) + " words in this document!")
+    messagebox.showinfo("About", "Welcome to this convenient and clean notepad! There are " + str(len(user_input)) + " words in this document!")
 
 
 def quitProgram():
