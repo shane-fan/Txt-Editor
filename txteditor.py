@@ -33,8 +33,9 @@ def saveAs(): #Save new
 def about(): #about tab
     word_count = 0
     user_input = str(Entry(root).get())
-    words = user_input.split()
-    for _ in words: #word counter
+    user_input.split()
+    print(user_input + "1235236")
+    for _ in user_input: #word counter
         word_count += 1
     messagebox.showinfo("About", "Welcome to this convenient and clean notepad! There are " + str(word_count) + " words in this document!")
 
@@ -65,10 +66,13 @@ filemenu.add_command(label='Save', command=saveFile)
 filemenu.add_command(label='Save As', command=saveAs)
 filemenu.add_separator()
 filemenu.add_command(label='Quit', command=quitProgram)
-menubar.add_cascade(label='File', menu=filemenu)
+
 
 helpMenu = Menu(menubar)
-menubar.add_cascade(label='Help', command=helpMe)
+helpMenu.add_command(label='Too hard?', command=helpMe)
+
+menubar.add_cascade(label='File', menu=filemenu)
+menubar.add_cascade(label='Help', command=helpMenu)
 menubar.add_cascade(label='About', command=about)
 
 root.mainloop()
