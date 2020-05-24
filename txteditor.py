@@ -1,6 +1,6 @@
 from tkinter import Tk, scrolledtext, Menu, filedialog, END, messagebox
-
-
+from colored import fg, bg, attr
+color = fg("white") + bg("black")
 
 filename = None
 
@@ -40,6 +40,7 @@ def quitProgram():
 def helpMe():
     messagebox.showinfo("Help", "Haha, bamboozled: no help here")
 
+
 root = Tk()
 root.title("Text Editor")
 root.minsize(width=400, height=400)
@@ -47,10 +48,11 @@ root.maxsize(width=400, height=400)
 text = scrolledtext.ScrolledText(root, width=400, height=400)
 text.pack()
 
+font_specs = (color + "monaco", 8)
+menubar = Menu(root, font=font_specs)
+root.config(menu=menubar)
 
-
-menubar = Menu(root)
-filemenu = Menu(menubar)
+filemenu = Menu(menubar, font=font_specs, tearoff=0)
 filemenu.add_command(label='New', command=newFile)
 filemenu.add_command(label='Open', command=openFile)
 filemenu.add_command(label='Save', command=saveFile)
@@ -63,5 +65,4 @@ helpMenu = Menu(menubar)
 menubar.add_cascade(label='Help', command=helpMe)
 menubar.add_cascade(label='About', command=about)
 
-root.config(menu=menubar)
 root.mainloop()
