@@ -1,4 +1,4 @@
-from tkinter import Tk, scrolledtext, Menu, filedialog, END, messagebox
+from tkinter import Tk, scrolledtext, Menu, filedialog, END, messagebox, Entry
 from colored import fg, bg, attr
 color = fg("white") + bg("black")
 
@@ -23,7 +23,7 @@ def saveFile(): #Stores text from textbox
     file_.close()
 
 def saveAs(): #Save new
-    f = filedialog.asksaveasfile(mode='w', defaultextension='.txt')
+    f = filedialog.asksaveasfile(mode='w', defaultextension='.txt', filetypes=[("All Files", "*.*"),("Text Files", "*.txt"),("Python Files", "*.py"),("Markdown Files", "*.md"),("JavaScript Files", "*.js"),("CSS Files", "*.css"),("HTML Files", "*.html")])
     data = text.get(0.0, END)
     try:
         f.write(data.rstrip()) #cutoff whitespace
@@ -32,16 +32,18 @@ def saveAs(): #Save new
 
 def about(): #about tab
     word_count = 0
-    for word in root:
-        word + 1
-    messagebox.showinfo("About", "A convenient and clean notepad! There are " + str(word_count) + "words in this document!")
+    user_input = str(Entry(root).get())
+    words = user_input.split()
+    for _ in words: #word counter
+        word_count += 1
+    messagebox.showinfo("About", "Welcome to this convenient and clean notepad! There are " + str(word_count) + " words in this document!")
 
 
 def quitProgram():
     if messagebox.askyesno("Quit", "Are you sure you want to quit?"):
         root.destroy()
 
-def helpMe():
+def helpMe(): #help tab
     messagebox.showinfo("Help", "Haha, bamboozled: no help here")
 
 
