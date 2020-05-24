@@ -30,8 +30,12 @@ def saveAs(): #Save new
     except:
         messagebox.showerror(title='Error', message='Cannot save file') #shouldn't have error, but here if there is
 
-def about():
-    messagebox.showinfo("About", "A convenient and clean notepad!")
+def about(): #about tab
+    word_count = 0
+    for word in root:
+        word + 1
+    messagebox.showinfo("About", "A convenient and clean notepad! There are " + str(word_count) + "words in this document!")
+
 
 def quitProgram():
     if messagebox.askyesno("Quit", "Are you sure you want to quit?"):
