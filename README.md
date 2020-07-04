@@ -1,8 +1,8 @@
 # Txt-Editor
-This text editor is a simple and clean notepad to take notes on. It's easy to use and straightforward. Compatible with txt, python, javascript, html, and css files.
+Basically a notepad, nearly identical to the one Windows has for txt files. Compatible with txt, python, javascript, html, and css files
 
 ## How to use
-Download or copy-and-paste code into text editor and run it in an IDE or terminal. Will see a text editor pop up. Edit and take notes there!
+Download or copy-and-paste code into text editor and run it in an IDE or terminal. Will see a text editor pop up that you'll be able to use
 
 
 
